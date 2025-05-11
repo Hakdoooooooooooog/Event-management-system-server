@@ -7,6 +7,10 @@ import { errorHandler } from "./Middlewares/errorHandler";
 
 const app = express();
 
+if (process.env.PORT === undefined) {
+  throw new Error("PORT is not defined");
+}
+
 app.use(
   cors({
     origin: process.env.CLIENT_URL,

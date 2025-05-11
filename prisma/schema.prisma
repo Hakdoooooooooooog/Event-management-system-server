@@ -27,7 +27,7 @@ model joinedevent {
   id       Int   @id @default(autoincrement())
   user_id  Int
   event_id Int
-  event    event @relation(fields: [event_id], references: [id], map: "JoinedEvent_event_id_fkey", onDelete: Cascade, onUpdate: Cascade)
+  event    event @relation(fields: [event_id], references: [id], onDelete: Cascade, map: "JoinedEvent_event_id_fkey")
   user     user  @relation(fields: [user_id], references: [id], map: "JoinedEvent_user_id_fkey")
 
   @@unique([user_id, event_id], map: "JoinedEvent_user_id_event_id_key")
